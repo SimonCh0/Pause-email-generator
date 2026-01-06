@@ -486,15 +486,14 @@ const App = () => {
 
   useEffect(() => {
     function postHeight() {
-      const height = document.documentElement.scrollHeight;
+      const root = document.getElementById("root");
+      if (!root) return;
+      const height = Math.ceil(root.getBoundingClientRect().height);
       window.parent.postMessage({ type: "objectHeight", height }, "*");
     }
-    window.addEventListener("load", postHeight);
-    window.addEventListener("resize", postHeight);
     postHeight();
-    
+    window.addEventListener("resize", postHeight);
     return () => {
-      window.removeEventListener("load", postHeight);
       window.removeEventListener("resize", postHeight);
     };
   }, []);
@@ -578,7 +577,7 @@ const App = () => {
   const currentCategoryData = selectedCategory ? SERVICES_DATA[selectedCategory] : null;
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
+    <div className="flex flex-col lg:flex-row bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
       {/* Sidebar Form */}
       <aside className="w-full lg:w-[420px] xl:w-[460px] bg-white border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col shadow-xl">
         <div className="flex-1 overflow-y-auto p-5 space-y-5">
@@ -919,4 +918,3 @@ const App = () => {
 };
 
 export default App;
-
