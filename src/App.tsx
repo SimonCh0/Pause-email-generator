@@ -486,7 +486,7 @@ const App = () => {
 
   useEffect(() => {
     function postHeight() {
-      const height = document.body.scrollHeight;
+      const height = document.documentElement.scrollHeight;
       window.parent.postMessage({ type: "objectHeight", height }, "*");
     }
     window.addEventListener("load", postHeight);
