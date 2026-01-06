@@ -579,8 +579,8 @@ const App = () => {
   return (
     <div className="flex flex-col lg:flex-row bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
       {/* Sidebar Form */}
-      <aside className="w-full lg:w-[420px] xl:w-[460px] bg-white border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col shadow-xl">
-        <div className="flex-1 overflow-y-auto p-5 space-y-5">
+      <aside className="w-full lg:w-[420px] xl:w-[460px] bg-white border-b lg:border-b-0 lg:border-r border-slate-200 shadow-xl">
+        <div className="p-5 space-y-5">
           {/* Category Selection */}
           <section className="space-y-3">
             <h2 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
@@ -804,9 +804,9 @@ const App = () => {
       {/* Main Content - Letter Preview */}
       <main 
         ref={letterOutputRef}
-        className="flex-1 bg-gradient-to-br from-slate-50 to-slate-100 p-4 sm:p-6 lg:p-10 xl:p-14 flex flex-col items-center"
+        className="lg:flex-1 bg-gradient-to-br from-slate-50 to-slate-100 p-4 sm:p-6 lg:p-10 xl:p-14"
       >
-        <div className="w-full max-w-3xl">
+        <div className="w-full max-w-3xl mx-auto">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-5 gap-3">
             <h2 className="text-xs font-bold text-slate-500 uppercase tracking-widest">Preview & Edit</h2>
             <div className="flex gap-2 w-full sm:w-auto">
@@ -843,7 +843,7 @@ const App = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden min-h-[400px]">
+          <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden lg:min-h-[400px]">
             {!generatedLetter ? (
               <div className="flex flex-col items-center justify-center text-center p-12 lg:p-20">
                 <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-100 flex items-center justify-center mb-6">
